@@ -8,6 +8,7 @@ Created on Mon May 13 15:40:12 2019
 
 import os
 import socket
+import shutil
 import subprocess
 import pandas as pd
 from glob import glob
@@ -67,6 +68,9 @@ def SmileExtract(smilePath, configPath, configs, database, dataDf):
     for config in configs:
         smileConfig = configPath + configs[config]
         featureFile = "features/{}_{}.csv".format(database, config)
+        print("Extracting {} feature set.".format(config))
+        N = dataDf.shape[0]
+        n = 0
         for _, row in dataDf.iterrows():
             cmd = ('{0} -C "{1}" -I "{2}" -csvoutput "{3}" -instname '
                    + '"{4}" -l 0').format(smilePath, smileConfig,
@@ -74,7 +78,9 @@ def SmileExtract(smilePath, configPath, configs, database, dataDf):
                                           row.soundPath)
             subprocess.Popen(cmd, shell=True,
                              stdout=subprocess.PIPE).communicate()
-            print("", end="")
+            print("\r{}% finished.".format(round((n+1)/N*100, 2)), end="")
+            n += 1
+        print()
         featureDf = pd.read_csv("features/{}_{}.csv".format(database, config),
                                 sep=";")
         featureDf.drop("frameTime", axis=1, inplace=True)
@@ -110,12 +116,11 @@ def main():
                "eGeMAPS": "gemaps/eGeMAPSv01a.conf"}
     # emotions and acting types
     database = "IEMOCAP"
-    emotionsTest = ["Neutral", "Happiness", "Sadness", "Anger", "Boredom",
-                    "Disgust", "Fear", "Ecited", "Frustration", "Surprise"]
-    actTypeToUse = ["impro", "script"]
+    emotionsTest = ["Neutral", "Happiness", "Sadness", "Anger"]
+    actTypeToUse = ["impro"]
     # extraction
-    if not os.path.exists("features"):
-        os.mkdir("features")
+    shutil.rmtree("features", ignore_errors=True)
+    os.mkdir("features")
     dataDf = load_IEMOCAP(dataPath, actTypeToUse, emotionsTest)
     SmileExtract(smilePath, configPath, configs, database, dataDf)
 
