@@ -5,17 +5,17 @@ Created on Mon May 13 18:12:58 2019
 
 @author: zhuzhi
 """
-import socket
 import os
+import keras
+import socket
 import numpy as np
 import pandas as pd
-from utils import preprocess
-import keras
-from sklearn.utils import class_weight
 import tensorflow as tf
-from sklearn.metrics import confusion_matrix
+from utils import preprocess
 from utils import waua, plot_wauacm
 from keras.models import Sequential
+from sklearn.utils import class_weight
+from sklearn.metrics import confusion_matrix
 from keras.layers import Dense, Dropout, BatchNormalization
 
 
@@ -112,10 +112,10 @@ def DNN_Train(features, emotionsTest, config):
     waT, uaT = np.around(waua(cmT), decimals=4)
     cmpV = cmV / np.reshape(np.sum(cmV, 1), (4, 1))
     cmpT = cmT / np.reshape(np.sum(cmT, 1), (4, 1))
-    imageName = "results/DNN/{}_V.png".format(config)
+    imageName = "results/DNN/Train_{}_V.png".format(config)
     title = "wa={}, ua={}".format(waV, uaV)
     plot_wauacm(title, cmpV, emotionsTest, imageName)
-    imageName = "results/DNN/{}_T.png".format(config)
+    imageName = "results/DNN/Train_{}_T.png".format(config)
     title = "wa={}, ua={}".format(waT, uaT)
     plot_wauacm(title, cmpT, emotionsTest, imageName)
     print("waV: " + str(waV) + ", uaV: " + str(uaV))
