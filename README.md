@@ -27,5 +27,9 @@ SVM or DNN models with LLD features
 - LLD features extraction
   0. Set the paths of opensmile and IEMOCAP database in SmileFeatureExtraction.py.
   1. Run SmileFeatureExtraction.py to extract LLD features. The features will be saved in "./features/".
-- Training models
+- Train models
   2. Run LLD-SVM-Train.py to train the SVM model. The models should be saved in "./models/SVM/" and the results should be saved in "./results/SVM/"
+  3. Run LLD-DNN-Train.py to train the SVM model. The models should be saved in "./models/DNN/" and the results should be saved in "./results/DNN/"
+- Test models
+  4. Run LLD-SVM-Test.py to test the SVM model. The results should be saved in "./results/SVM/"
+  5. Run LLD-DNN-Test.py to test the SVM model. The results should be saved in "./results/DNN/"
