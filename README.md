@@ -24,5 +24,8 @@ See wiki for details of features and models.
 
 ### LLD-SVM-DNN
 SVM or DNN models with LLD features
-0. Set the paths of opensmile and IEMOCAP database in SmileFeatureExtraction.py.
-1. Run SmileFeatureExtraction.py to extract LLD features.
+- LLD features extraction
+  0. Set the paths of opensmile and IEMOCAP database in SmileFeatureExtraction.py.
+  1. Run SmileFeatureExtraction.py to extract LLD features. The features will be saved in "./features/" fold.
+- Training models
+  2. 
