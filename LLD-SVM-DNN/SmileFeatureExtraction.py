@@ -71,8 +71,7 @@ def SmileExtract(smilePath, configPath, configs, database, dataDf):
             cmd = ('{0} -C "{1}" -I "{2}" -csvoutput "{3}" -instname '
                    + '"{4}"').format(smilePath, smileConfig,
                                      row.soundPath, featureFile, row.soundPath)
-            subprocess.Popen(cmd, shell=True,
-                             stdout=subprocess.PIPE).communicate()
+            subprocess.Popen(cmd, shell=True).communicate()
             print("", end="")
         featureDf = pd.read_csv("features/{}_{}.csv".format(database, config),
                                 sep=";")
