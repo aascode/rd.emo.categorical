@@ -23,7 +23,7 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 See wiki for details of features and models.
 
 ### LLD-SVM-DNN
-SVM or DNN models with LLD features
+SVM and DNN models with LLD features
 1. LLD features extraction
     - Set the paths of opensmile and IEMOCAP database in SmileFeatureExtraction.py.
     - Run SmileFeatureExtraction.py to extract LLD features. The features will be saved in "./features/".
