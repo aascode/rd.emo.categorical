@@ -11,57 +11,7 @@ import socket
 import shutil
 import subprocess
 import pandas as pd
-from glob import glob
-
-
-def load_IEMOCAP(dataPath, actTypeTest, emotionsTest):
-    emotions = {"neu": "Neutral",
-                "sad": "Sadness",
-                "fea": "Fear",
-                "xxx": "xxx",
-                "hap": "Happiness",
-                "exc": "Excited",
-                "dis": "Disgust",
-                "fru": "Frustration",
-                "sur": "Surprise",
-                "ang": "Anger",
-                "oth": "Other"}
-    dataList = []
-    for nSes in range(1, 6):
-        txtfiles = (glob('{}Session{}/dialog/EmoEvaluation/*.txt'
-                         .format(dataPath, nSes)))
-        for nEmoEva in range(len(txtfiles)):
-            with open(txtfiles[nEmoEva]) as txtfile:
-                for line in txtfile:
-                    if line[0] == '[':
-                        line = line.split()
-                        filename = line[3]
-                        filename_split = filename.split("_")
-                        # informations about the sound file
-                        soundPath = ("{}Session{}/sentences/wav/{}"
-                                     .format(dataPath, nSes,
-                                             filename_split[0]))
-                        for m in range(1, len(filename_split)-1):
-                            soundPath += "_" + filename_split[m]
-                        soundPath += "/{}.wav".format(filename)
-                        session = nSes
-                        speaker = (filename_split[0][:5] + "_"
-                                   + filename_split[-1][0])
-                        if filename_split[1][0] == "i":
-                            actingType = "impro"
-                        else:
-                            actingType = "script"
-                        emotion = emotions[line[4]]
-                        dataList.append([soundPath, filename, session, speaker,
-                                         actingType, emotion])
-    dataDf = pd.DataFrame(dataList, columns=["soundPath", "filename",
-                                             "session", "speaker",
-                                             "actType", "emotion"])
-    dataDf.where(dataDf.actType.isin(actTypeTest), inplace=True)
-    dataDf.where(dataDf.emotion.isin(emotionsTest), inplace=True)
-    dataDf.dropna(inplace=True)
-    dataDf.reset_index(drop=True, inplace=True)
-    return dataDf
+from utils import load_IEMOCAP
 
 
 def SmileExtract(smilePath, configPath, configs, database, dataDf):
