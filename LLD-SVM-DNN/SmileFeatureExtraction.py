@@ -73,6 +73,7 @@ def SmileExtract(smilePath, configPath, configs, database, dataDf):
                                      row.soundPath, featureFile, row.soundPath)
             subprocess.Popen(cmd, shell=True,
                              stdout=subprocess.PIPE).communicate()
+            print("", end="")
         featureDf = pd.read_csv("features/{}_{}.csv".format(database, config),
                                 sep=";")
         featureDf.drop("frameTime", axis=1, inplace=True)
