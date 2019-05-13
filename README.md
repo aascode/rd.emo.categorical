@@ -18,3 +18,11 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 - scikit-learn 0.20.2
 - tensorflow-gpu 1.13.1
 - keras 2.2.4
+
+## How to run
+See wiki for details of features and models.
+
+### LLD-SVM-DNN
+SVM or DNN models with LLD features
+0. Set the paths of opensmile and IEMOCAP database in SmileFeatureExtraction.py.
+1. Run SmileFeatureExtraction.py to extract LLD features.
