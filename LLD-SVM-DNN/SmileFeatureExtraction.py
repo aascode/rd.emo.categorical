@@ -69,9 +69,11 @@ def SmileExtract(smilePath, configPath, configs, database, dataDf):
         featureFile = "features/{}_{}.csv".format(database, config)
         for _, row in dataDf.iterrows():
             cmd = ('{0} -C "{1}" -I "{2}" -csvoutput "{3}" -instname '
-                   + '"{4}"').format(smilePath, smileConfig,
-                                     row.soundPath, featureFile, row.soundPath)
-            subprocess.Popen(cmd, shell=True)
+                   + '"{4}" -l 0').format(smilePath, smileConfig,
+                                          row.soundPath, featureFile,
+                                          row.soundPath)
+            subprocess.Popen(cmd, shell=True,
+                             stdout=subprocess.PIPE).communicate()
             print("", end="")
         featureDf = pd.read_csv("features/{}_{}.csv".format(database, config),
                                 sep=";")
