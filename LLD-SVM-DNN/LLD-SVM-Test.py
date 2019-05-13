@@ -12,7 +12,7 @@ from utils import preprocess
 from sklearn.metrics import confusion_matrix
 from utils import waua, plot_wauacm
 
-configs = ["IS09"]  # , "IS10", "IS11", "IS12", "ComParE", "GeMAPS", "eGeMAPS"]
+configs = ["IS09", "IS10", "IS11", "IS12", "ComParE", "GeMAPS", "eGeMAPS"]
 database = "IEMOCAP"
 emotionsTest = ["Neutral", "Happiness", "Sadness", "Anger"]
 for config in configs:
