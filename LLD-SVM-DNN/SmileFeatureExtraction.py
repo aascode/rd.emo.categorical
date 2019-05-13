@@ -8,7 +8,6 @@ Created on Mon May 13 15:40:12 2019
 
 import os
 import socket
-import shutil
 import subprocess
 import pandas as pd
 from glob import glob
@@ -98,8 +97,7 @@ def main():
     else:
         smilePath = "/usr/local/bin/SMILExtract"
         configPath = "/Users/zhuzhi/Library/opensmile-2.3.0/config/"
-    database = "IEMOCAP"
-    dataPath = "../../Database/IEMOCAP_full_release/"
+    dataPath = "../../../Database/IEMOCAP_full_release/"
     # SIMLE configs
     configs = {"IS09": "IS09_emotion.conf",
                "IS10": "IS10_paraling.conf",
@@ -109,6 +107,7 @@ def main():
                "GeMAPS": "gemaps/GeMAPSv01a.conf",
                "eGeMAPS": "gemaps/eGeMAPSv01a.conf"}
     # emotions and acting types
+    database = "IEMOCAP"
     emotionsTest = ["Neutral", "Happiness", "Sadness", "Anger", "Boredom",
                     "Disgust", "Fear", "Ecited", "Frustration", "Surprise"]
     actTypeToUse = ["impro", "script"]
