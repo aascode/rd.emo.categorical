@@ -19,6 +19,7 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 - scikit-learn 0.20.2
 - tensorflow-gpu 1.13.1
 - keras 2.2.4
+- librosa 0.6.3
 
 ## How to run
 See [wiki](https://github.com/zhuzhi-fairy/rd.emo.categorical/wiki) for details of features and models.
