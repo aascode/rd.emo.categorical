@@ -40,7 +40,7 @@ SVM and DNN models with LLD features
 CNN and CRNN models with spectrogram as input
 1. Spectrogram calculation
     - Set the paths of opensmile and IEMOCAP database in `SpectrogramExtraction.py`.
-    - Run `SpectrogramExtraction.py` to calculate spectrograms. The features will be saved in "./spectrogram/".
+    - Run `SpectrogramExtraction.py` to calculate spectrograms. The spectrograms will be saved in "./spectrogram/".
 2. Train models
     - Run `CNN-Train.py` to train the CNN model.
     - Run `CRNN-Train.py` to train the CRNN model.
