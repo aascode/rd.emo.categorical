@@ -47,3 +47,13 @@ CNN and CRNN models with spectrogram as input
 3. Test models
     - Run `CNN-Test.py` to test the trained CNN model.
     - Run `CRNN-Test.py` to test the trained CRNN model.
+
+### Spectrogram-Inception
+An inception based CNN model with spectrogram as input
+1. Spectrogram calculation
+    - Set the paths of opensmile and IEMOCAP database in `SpectrogramExtraction.py`.
+    - Run `SpectrogramExtraction.py` to calculate spectrograms. The spectrograms will be saved in "./spectrograms/".
+2. Train model
+    - Run `Inception-Train.py` to train the Inception model.
+3. Test model
+    - Run `Inception-Test.py` to test the trained Inception model.
