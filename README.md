@@ -31,10 +31,10 @@ SVM and DNN models with LLD features
     - Run `SmileFeatureExtraction.py` to extract LLD features. The features will be saved in "./features/".
 2. Train models
     - Run `LLD-SVM-Train.py` to train the SVM model. The models should be saved in "./models/SVM/" and the results should be saved in "./results/SVM/"
-    - Run `LLD-DNN-Train.py` to train the SVM model. The models should be saved in "./models/DNN/" and the results should be saved in "./results/DNN/"
+    - Run `LLD-DNN-Train.py` to train the DNN model. The models should be saved in "./models/DNN/" and the results should be saved in "./results/DNN/"
 3. Test models
-    - Run `LLD-SVM-Test.py` to test the SVM model. The results should be saved in "./results/SVM/"
-    - Run `LLD-DNN-Test.py` to test the SVM model. The results should be saved in "./results/DNN/"
+    - Run `LLD-SVM-Test.py` to test the trained SVM model. The results should be saved in "./results/SVM/"
+    - Run `LLD-DNN-Test.py` to test the trained DNN model. The results should be saved in "./results/DNN/"
 
 ### Spectrogram-CNN-CRNN
 CNN and CRNN models with spectrogram as input
@@ -43,7 +43,7 @@ CNN and CRNN models with spectrogram as input
     - Run `SpectrogramExtraction.py` to calculate spectrograms. The features will be saved in "./spectrogram/".
 2. Train models
     - Run `CNN-Train.py` to train the CNN model.
-    - Run `CRNN-Train.py` to train the SVM model.
+    - Run `CRNN-Train.py` to train the CRNN model.
 3. Test models
-    - Run `CNN-Test.py` to test the SVM model.
-    - Run `CRNN-Test.py` to test the SVM model.
+    - Run `CNN-Test.py` to test the trained CNN model.
+    - Run `CRNN-Test.py` to test the trained CRNN model.
