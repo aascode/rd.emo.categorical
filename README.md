@@ -6,6 +6,7 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 
 ### Database
 [The Interactive Emotional Dyadic Motion Capture (IEMOCAP) Database](https://sail.usc.edu/iemocap/)
+`share0/data/IEMOCAP/IEMOCAP_full_release_withoutVideos`
 
 ### Requirements
 - opensmile 2.3.0
@@ -33,3 +34,15 @@ SVM and DNN models with LLD features
 3. Test models
     - Run `LLD-SVM-Test.py` to test the SVM model. The results should be saved in "./results/SVM/"
     - Run `LLD-DNN-Test.py` to test the SVM model. The results should be saved in "./results/DNN/"
+
+### Spectrogram-CNN-CRNN
+CNN and CRNN models with spectrogram as input
+1. Spectrogram calculatiion
+    - Set the paths of opensmile and IEMOCAP database in `SpectrogramExtraction.py`.
+    - Run `SpectrogramExtraction.py` to calculate spectrograms. The features will be saved in "./spectrogram/".
+2. Train models
+    - Run `CNN-Train.py` to train the CNN model.
+    - Run `CRNN-Train.py` to train the SVM model.
+3. Test models
+    - Run `CNN-Test.py` to test the SVM model.
+    - Run `CRNN-Test.py` to test the SVM model.
