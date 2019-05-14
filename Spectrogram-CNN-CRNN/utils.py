@@ -153,7 +153,7 @@ def Preprocess(sp_test, emotionsTest, dataDf, tMax, fMax):
     x_train = (x_train - xM) / xStd
     x_val = (x_val - xM) / xStd
     x_test = (x_test - xM) / xStd
-    # for keras crnn model
+    # for keras model
     x_train = x_train.reshape(x_train.shape[0], tMax, fMax, 1)
     x_val = x_val.reshape(x_val.shape[0], tMax, fMax, 1)
     x_test = x_test.reshape(x_test.shape[0], tMax, fMax, 1)
