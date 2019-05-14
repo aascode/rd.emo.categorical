@@ -5,6 +5,8 @@ Created on Mon May 13 18:35:45 2019
 
 @author: zhuzhi
 """
+import os
+import socket
 import numpy as np
 import pandas as pd
 import keras.backend as K
@@ -15,6 +17,8 @@ from sklearn.metrics import confusion_matrix
 
 
 def main():
+    if socket.getfqdn(socket.gethostname()) == "d8":
+        os.environ["CUDA_VISIBLE_DEVICES"] = "3"
     batch_size = 128
     configs = ["IS09", "IS10", "IS11", "IS12", "ComParE", "GeMAPS", "eGeMAPS"]
     # IEMOCAP imp NHSA
