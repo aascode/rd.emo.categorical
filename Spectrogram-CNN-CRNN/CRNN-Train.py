@@ -16,7 +16,7 @@ from sklearn.utils import class_weight
 from keras.utils import multi_gpu_model
 from sklearn.metrics import confusion_matrix
 from keras.layers import Conv2D, MaxPooling2D, Activation, Bidirectional
-from keras.layers import Dense, Dropout, BatchNormalization, Reshape, GRU
+from keras.layers import Dense, Dropout, BatchNormalization, Reshape, CuDNNGRU
 
 
 def crnn_model(num_classes, input_shape, dr, lr):
@@ -33,7 +33,7 @@ def crnn_model(num_classes, input_shape, dr, lr):
     model.add(Activation("relu"))
     model.add(MaxPooling2D(pool_size=(1, 2)))
     model.add(Reshape((300, 930)))
-    model.add(Bidirectional(GRU(128, activation='relu')))
+    model.add(Bidirectional(CuDNNGRU(128, activation='relu')))
     model.add(Dense(64, activation='relu'))
     model.add(Dropout(dr))
     model.add(Dense(num_classes, activation='softmax'))
