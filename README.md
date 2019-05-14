@@ -6,6 +6,7 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 
 ### Database
 [The Interactive Emotional Dyadic Motion Capture (IEMOCAP) Database](https://sail.usc.edu/iemocap/)
+`share0/data/IEMOCAP/IEMOCAP_full_release_withoutVideos`
 
 ### Requirements
 - opensmile 2.3.0
