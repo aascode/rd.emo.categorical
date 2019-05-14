@@ -7,6 +7,7 @@ Created on Mon May 13 18:35:45 2019
 """
 import numpy as np
 import pandas as pd
+import keras.backend as K
 from utils import preprocess
 from utils import waua, plot_wauacm
 from keras.models import load_model
@@ -48,6 +49,8 @@ def main():
             cmT += confusion_matrix(y_test_C,
                                     [emoC.argmax() for emoC in y_test_p],
                                     labels=list(range(num_classes)))
+            del model
+            K.clear_session()
             print("speaker: " + str(sp))
             print(cmV)
             print(cmT)
