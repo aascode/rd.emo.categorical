@@ -20,7 +20,7 @@ Tested on computation server d8 (GPU: GTX980Ti * 4).
 - keras 2.2.4
 
 ## How to run
-See wiki for details of features and models.
+See [wiki](https://github.com/zhuzhi-fairy/rd.emo.categorical/wiki) for details of features and models.
 
 ### LLD-SVM-DNN
 SVM and DNN models with LLD features
